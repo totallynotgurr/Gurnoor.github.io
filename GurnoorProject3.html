@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Vina+Sans&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #a18262;
+}
+div {
+  height: 200px;
+  background-size: 50%;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 20px;
+}
+h1 {
+  font-family: 'Edu TAS Beginner', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #c634eb;
+  margin: 60px 0 0 0;
+}
+h2 {
+  font-family: 'Vina Sans';
+  text-align: center;
+  color: #3446eb;
+  margin: 0px  10px 0;
+  font-size: 30;
+}
+p {
+  color: rgba(0, 255, 98, 0.8);
+  font-family: 'Edu TAS Beginner', cursive;
+  font-size: 18px;
+  background: black;
+  background: linear-gradient(bottom, rgba(245, 40, 145, 0.4), rgba(245, 40, 145, 0.4));
+  background: -webkit-linear-gradient(bottom, rgba(245, 40, 145, 0.4), rgba(245, 40, 145, 0.4));
+  background: -moz-linear-gradient(bottom, rgba(245, 40, 145, 0.4), rgba(245, 40, 145, 0.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://www.tastingtable.com/img/gallery/12-facts-you-need-to-know-about-the-starbucks-pink-drink/l-intro-1685646204.jpg");
+}
+.second{
+  background-image: url("https://staticg.sportskeeda.com/editor/2022/10/cbd56-16672389009937-1920.jpg");
+}
+.third{
+  background-image: url("https://gastroguru.co/wp-content/uploads/2021/07/chocolate-chip-cookie-2.jpg");
+}
+.price {
+  float: right;
+}
+
+input {
+	font-size: 22px;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px ;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+
+	input {
+		font-size: 22px;
+	}
+	
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Gurrr's Cafe</h1>
+<h2>Small eating and drinking establishment</h2>
+
+<div class="first">
+	<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Pink drink <span class="price">$6</span><br />
+  <small>What Is the Pink Drink made of, exactly? Made with Strawberry Açaí Refresher, Pink Drink has a tiny bit of caffeine thanks to some green coffee extract. Instead of water, the refresher is mixed with coconut milk to create the shade of pink that makes it so photo-worthy. </small></p>
+</div>
+
+
+<div class="second">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Hot Chrsitmas drinks<span class="price">$12</span><br />
+  <small>
+WHAT IS HOT CHOCOLATE? Hot chocolate is simply melted, shaved, or grated dark, white, or milk chocolate combined with either milk or water. You can tailor the intensity to suit your mood with milk leading to a richer drink than if you use just water.</small></p>
+</div>
+  
+
+<div class="third">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Chocolate Chips cookie<span class="price">$5</span><br />
+  <small>A chewy cookie loaded with semisweet chocolate chunks.
+contains wheat, milk, eggs and soy. may contain peanuts and tree nuts. We cannot guarantee that any of our products are free from allergens (including dairy, eggs, soy, tree nuts, wheat and others) as we use shared equipment to store, prepare and serve them.</small></p>
+</div>
+<br><br>
+<input id = "Name" type = "name" placeholder = "Your Name">
+<input id = "Email" placeholder = "Your email">
+<input id = "submit" type ="submit">
+
+<br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB9pGyuMeEd3wIgiWUcCgnsUifa_eWH_do",
+    authDomain: "gurrrr3-e900c.firebaseapp.com",
+    projectId: "gurrrr3-e900c",
+    storageBucket: "gurrrr3-e900c.appspot.com",
+    messagingSenderId: "67806511740",
+    appId: "1:67806511740:web:16ae3cbb1345d928d03ff9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+    const Name = document.querySelector("#Name") 
+    const Email = document.querySelector("#Email")
+    document.querySelector('#submit').addEventListener('click', Submit)
+
+  function Submit() {
+    const timestamp = buildTimestamp()
+	  let total = 0
+	  let cart = { } 
+	  for  (let i=0; i<quantities.length; i=i+1) {
+	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+			let price = prices[i].innerHTML.replace('$', '')
+			total = total + quantities[i].value * price 
+	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+		
+	  	}
+	  	quantities[i].value = ""
+	  }
+	  
+  
+    set(ref(db, timestamp), {
+  	  Name: Name.value,
+        email: Email.value,
+		cart: cart,
+		totalPrice: total,
+		paid: "not yet",
+    });
+
+    Name.value = ""
+    Email.value = ""
+  }
+
+  function buildTimestamp() {
+    const now = new Date();
+    let timestamp = now.getFullYear().toString() + "/";
+    //const month = now.toLocaleString('default', { month: 'long' });
+
+    let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+    month = month.toString()
+    month = addLeadingZero(month)
+    timestamp += month + "/"; 
+
+    let date = now.getDate().toString()
+    date = addLeadingZero(date)
+    timestamp += date + "/";
+
+    let hours = now.getHours().toString()
+    hours = addLeadingZero(hours)
+    timestamp += hours + ":";
+
+    let minutes = now.getMinutes().toString()
+    minutes = addLeadingZero(minutes)
+    timestamp += minutes + ":";
+
+    let seconds = now.getSeconds().toString()
+    seconds = addLeadingZero(seconds)
+    timestamp += seconds;
+
+    return timestamp
+  }
+
+  function addLeadingZero(units) {
+  	if (units.length < 2) {
+  		units = "0" + units
+  	}
+  	return units
+  }
+  const quantities = document.querySelectorAll(".quantities")
+  const itemsList = ["Pink Drink", "Hot Christmas drinks", "Chocolate chips cookie"]
+  const prices = document.querySelectorAll(".price")
+</script>
